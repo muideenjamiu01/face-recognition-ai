@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    margin: 0; 
+   font-family: "Public Sans", "Noto Sans", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: <weight>;
+   font-style: normal;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+div[aspectratio="cover"]{
+    height: 200px !important;
+    width: 200px !important;
+    border-radius: 50%;
+    border: 1px solid rgb(255, 255, 255);
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+video{
+    border-radius: 50% !important;
+}
