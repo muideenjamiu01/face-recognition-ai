@@ -22,6 +22,16 @@ const StartPage = () => {
                 move your head in a circle to show all angles of your face.
               </p>
             </div>
+            <div>
+              <div class="block p-4 m-auto bg-white rounded-lg shadow w-72">
+                <div class="w-full h-4 bg-gray-400 rounded-full mt-3">
+                  <div class="w-3/4 h-full text-center text-xs text-white bg-primary rounded-full">
+                    75%
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="flex justify-center">
               <button
                 type="button"
