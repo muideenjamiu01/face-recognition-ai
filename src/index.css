@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .heading {
+        @apply text-[28px] leading-8 font-bold text-[#07080B] text-center mb-3 md:mb-6 max-w-6 sm:max-w-full;
+    }
+
+    .containerOuter {
+        @apply top-0 left-0 h-screen md:grid md:place-items-center
+    }
+
+    .containerInner {
+        @apply w-full min-h-[12rem] md:w-[600px] bg-white md:rounded-[20px] flex flex-col justify-center p-4 md:p-8 relative
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    font-family: "Inter", sans-serif;
+}

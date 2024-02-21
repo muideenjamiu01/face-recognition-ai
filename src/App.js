@@ -1,17 +1,19 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-
-function Hello() {
-  return <div>Hello</div>;
-}
+import StartPage from "./pages/StartPage";
+import Success from "./pages/Success";
+import Home from "./pages/Home";
+import Header from "./components/Header";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div>
+        <Header />
         <Routes>
-          <Route path="/" element={<Hello />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/start" element={<StartPage />} />
+          <Route path="/success" element={<Success />} />
         </Routes>
       </div>
     </BrowserRouter>
