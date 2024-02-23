@@ -23,3 +23,7 @@ div[aspectratio="cover"]{
 video{
     border-radius: 50% !important;
 }
+div[aspectratio="cover"] div{
+    color: #fff !important;
+    font-size: 12px;
+}

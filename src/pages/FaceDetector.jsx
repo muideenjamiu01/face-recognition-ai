@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {Camera} from "react-camera-pro";
 import Header from "../layout/Header";
 import ProgressBar from "@ramonak/react-progress-bar";
@@ -12,13 +12,28 @@ const FaceDetector = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [isCompleted, setIsCompleted] = useState(false)
     const [captureCount, setCaptureCount ] = useState(0)
+    const [cameraEnabled, setCameraEnabled] = useState(false);
+
+    useEffect(() => {
+      const checkCameraPermission = async () => {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+          setCameraEnabled(true);
+          stream.getVideoTracks()[0].stop();  
+        } catch (error) {
+          setCameraEnabled(false);
+        }
+      };
+      checkCameraPermission();
+    }, []);
 
     const captureFace = () => {
-        const photo = camera.current.takePhoto();
-        setImage(photo);
-        console.log(photo);
-        if(progress<=50) setProgress(progress + 50 )
-        setCaptureCount(captureCount + 1)
+         if(cameraEnabled){
+          const photo = camera.current.takePhoto();
+          setImage(photo);
+          if(progress<=50) setProgress(progress + 50 )
+          setCaptureCount(captureCount + 1)
+         }
     }
   
     return (
@@ -29,15 +44,16 @@ const FaceDetector = () => {
              <img src={image} className="hidden" alt='Image preview' />
                 <button
                   className="text-white border left-[38%] border-white text-sm rounded-full absolute bottom-[20px] mt-8 py-2 px-12 rounded-lg bi bi-camera"
-                onClick={captureFace}
+                  onClick={captureFace}
                 >
                      &nbsp; { captureCount >=1 ? 're-capture' : 'capture' } 
               </button>
                 <div className="absolute top-[30px] left-[27%]">
                    <ProgressBar 
                          bgColor={'#87aa4b'} width="300px" 
-                        baseBgColor='#eee'
-                       completed={progress} />
+                         baseBgColor='#eee'
+                         completed={progress}
+                       />
                 </div>
          </section>
          <div className="mt-8">
