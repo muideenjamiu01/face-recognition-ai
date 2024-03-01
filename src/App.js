@@ -1,20 +1,24 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
 import FaceDetector from "./pages/FaceDetector";
-
-function Hello() {
-  return <div>Hello</div>;
-}
+import StartPage from "./pages/StartPage";
+import Success from "./pages/Success";
+import Home from "./pages/Home";
+import Header from "./components/Header";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Hello />} />
-          <Route path="/face-detector" element={<FaceDetector />} />
-        </Routes>
+      <div>
+        <Header />
+         <section className="">
+            <Routes>
+              <Route path="/face-detector" element={<FaceDetector />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/start" element={<StartPage />} />
+              <Route path="/success" element={<Success />} />
+            </Routes>
+         </section>
       </div>
     </BrowserRouter>
   );
