@@ -51,8 +51,11 @@ const FaceDetector = () => {
                 urlToBlob(document.querySelector('#p-image').src)
                 .then(blob => {
                     const formData = new FormData();
-                    formData.append('file', blob, 'image.png');
-                    formData.append('text', 'ahmed')
+                    const file = new File([blob], "webcam-frame.png", {
+                      type: "image/png",
+                    });
+                    formData.append('file', file);
+                    //formData.append('text', 'ahmed')
                     const response = axios.post(url, formData, {
                       headers: {
                           'Content-Type': 'multipart/form-data' // Set the Content-Type header explicitly
