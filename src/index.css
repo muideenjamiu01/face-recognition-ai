@@ -20,8 +20,16 @@ div[aspectratio="cover"]{
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+div.camera-wrapper div[aspectratio="cover"]{
+    height: 70px !important;
+    width: 70px !important;
+    border: 1px solid rgb(255, 255, 255);
+}
 video{
     border-radius: 50% !important;
+}
+div.camera-wrapper video{
+    border-radius: 10px !important;
 }
 div[aspectratio="cover"] div{
     color: #fff !important;

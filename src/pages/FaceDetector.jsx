@@ -128,8 +128,8 @@ const FaceDetector = () => {
           onClick={captureFace}
         >
           &nbsp;{
-                   isLoading ? "Loading..." : (captureCount >= 1 ? "re-capture" : 
-                     error ? "Retry" : "capture"
+                   isLoading ? "Loading..." : (captureCount >= 1 ? "Login" : 
+                     error ? "Retry" : "Register"
                    )
                 }
         </button>

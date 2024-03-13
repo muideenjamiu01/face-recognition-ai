@@ -6,6 +6,7 @@ import Success from "./pages/Success";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import toast, { Toaster } from "react-hot-toast";
+import Assessment from "./pages/Assessment";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/start" element={<StartPage />} />
               <Route path="/success" element={<Success />} />
+              <Route path="/assessment" element={<Assessment />} />
             </Routes>
          </section>
          <Toaster />
